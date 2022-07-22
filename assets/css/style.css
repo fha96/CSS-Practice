@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@400;700&display=swap');
 
-*{
+*, *::after ,*::before{
     padding: 0%;
     margin: 0%;
     box-sizing: border-box;
+    transition: 300ms;
 }
 
 a{
@@ -49,5 +50,25 @@ header{
 }
 
 .nav-item{
-    padding-left: 20px;
+    padding: 0 15px;
+    /* Here we changed the position of an anker tag in nav bar beacause we used absolute position while creating after element */
+    position: relative;
+}
+
+.nav-item::after{
+    /* Now we will give it 50% width which it would be related to width of .nav-item*/
+    width: 0;
+    /* Now the height we have to initialize it with small value to let the nav-item readable */
+    height: 2px;
+    /* Now the background to color the line */
+    background: darkgreen;
+    left: 50%;
+    bottom: -10px;
+    position: absolute;
+    content: '';
+    transform: translateX(-50%);
+}
+
+.nav-item:hover::after{
+    width: 50%;
 }
